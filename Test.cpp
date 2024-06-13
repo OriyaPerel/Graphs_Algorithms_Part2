@@ -87,7 +87,7 @@ TEST_CASE("Test graph multiplication")
     ariel::Graph g4 = g1 * g2;
 
     CHECK(g4.toString() == "[0, 0, 2]\n[1, 0, 1]\n[1, 0, 0]\n");
-    //cout<<g4;
+    // cout<<g4;
 }
 
 TEST_CASE("Invalid operations")
@@ -154,7 +154,7 @@ TEST_CASE("== and != operations")
         {0, 3, 0, 0},
         {0, 0, 0, 0}};
     g3.loadGraph(graph2);
-    CHECK_FALSE(g1 == g3); 
+    CHECK_FALSE(g1 == g3);
 }
 // TEST_CASE("<,> ,=>,<=operations")
 // {
@@ -303,18 +303,30 @@ TEST_CASE("multiply by scalar")
     CHECK(g1.toString() == "[0, -8, 0]\n[-8, 0, -8]\n[0, 4, 0]\n");
 }
 
-TEST_CASE("algorithms"){
-     ariel::Graph g1;
+TEST_CASE("divide by scalar")
+{
+    ariel::Graph g1;
+    vector<vector<int>> graph = {
+        {0, 2, 0},
+        {2, 0, 2},
+        {0, -2, 0}};
+    g1.loadGraph(graph);
+
+    g1 /= 2;
+    CHECK(g1.toString() == "[0, 1, 0]\n[1, 0, 1]\n[0, -1, 0]\n");
+}
+
+TEST_CASE("algorithms")
+{
+    ariel::Graph g1;
     vector<vector<int>> mat3 = {
         {0, 1, 1},
         {1, 0, 1},
         {1, 1, 0}};
     g1.loadGraph(mat3);
-    CHECK(Algorithms::shortestPath(g1,1,2)==1);
-    CHECK(Algorithms::negativeCycle(g1)=="No negative cycle found.");
+    CHECK(Algorithms::shortestPath(g1, 1, 2) == "1->2");
+    CHECK(Algorithms::negativeCycle(g1) == "No negative cycle found.");
     -g1;
-    CHECK(Algorithms::negativeCycle(g1)=="Negative cycle found! Cycle: 1 2 1 ");
-    CHECK(Algorithms::shortestPath(g1,1,2)==0);
-
-
+    CHECK(Algorithms::negativeCycle(g1) == "Negative cycle found! Cycle: 1 2 1 ");
+    CHECK(Algorithms::shortestPath(g1, 1, 2) == "No path found");
 }
