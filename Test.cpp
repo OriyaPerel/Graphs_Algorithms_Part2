@@ -156,51 +156,6 @@ TEST_CASE("== and != operations")
     g3.loadGraph(graph2);
     CHECK_FALSE(g1 == g3);
 }
-// TEST_CASE("<,> ,=>,<=operations")
-// {
-//     ariel::Graph g1;
-//     vector<vector<int>> graph1 = {
-//         {0, 1, 0},
-//         {1, 0, 1},
-//         {0, 1, 0}};
-//     g1.loadGraph(graph1);
-
-//     ariel::Graph g2;
-//     vector<vector<int>> graph2 = {
-//         {0, 1, 0},
-//         {1, 0, 1},
-//         {0, 1, 0}};
-//     g2.loadGraph(graph2);
-
-//     CHECK_FALSE(g2 > g1); // the graphs are equel
-//     CHECK(g1 >= g2);
-
-//     ariel::Graph g3;
-//     vector<vector<int>> graph3 = {
-//         {0, 1, 1},
-//         {1, 0, 1},
-//         {1, 1, 0}};
-//     g3.loadGraph(graph3);
-
-//     ariel::Graph g4;
-//     vector<vector<int>> graph4 = {
-//         {0, 1, 1, 0},
-//         {1, 0, 1, 0},
-//         {1, 1, 0, 0},
-//         {0, 0, 0, 0}};
-//     g4.loadGraph(graph4);
-//     CHECK(g4 > g3);
-
-//     ariel::Graph g5;
-//     vector<vector<int>> graph5 = {
-//         {0, 0, 0},
-//         {0, 0, 0},
-//         {0, 0, 0}};
-//     g5.loadGraph(graph5);
-
-//     CHECK_FALSE(g5 > g4); // graph 0 (g5) isn't contined graph
-//     CHECK_FALSE(g5 >= g4);
-// }
 
 TEST_CASE("<,> ,=>,<=operations")
 {
