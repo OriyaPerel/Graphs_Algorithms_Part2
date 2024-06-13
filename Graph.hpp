@@ -13,8 +13,7 @@ namespace ariel
     {
     private:
         std::vector<std::vector<int>> AdjacencyMatrix;
-        int row;
-        int col;
+        int numVertices;
         bool directed;
 
     public:
@@ -41,10 +40,13 @@ namespace ariel
         Graph &operator-();
         Graph &operator+();
         Graph &operator*=(int scalar);
+        Graph &operator/=(int scalar);
+
         Graph &operator--();           //--g
         Graph &operator++();           //++g
-        Graph &operator--(int scalar); // g--
-        Graph &operator++(int scalar); // g++
+        Graph operator--(int num); // g--
+        Graph operator++(int num); // g++
+
 
         bool operator<(const Graph &other);
         bool operator>(const Graph &other);
